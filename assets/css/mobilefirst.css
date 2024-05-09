@@ -24,6 +24,7 @@ header {
         max-width: 110px;
         border-radius: 20px;
         padding: 5px;
+        margin-left: 10px;
     }
 
     hr {
@@ -32,7 +33,7 @@ header {
         transform: rotateY(90); 
     }
 
-    p {
+    .store-paragraph { 
         flex-basis: 130px;
         flex-grow: 0;
         flex-shrink: 1;
@@ -55,5 +56,80 @@ header {
             cursor: pointer; 
         }
     }
+}
 
+.modal {
+    display: block;
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/assets/images/pexels-pixabay-159393.jpg);
+    background-position: top center;
+    background-size: cover;  
+    /* background-color: rgb(167, 105, 105); */ 
+    z-index: 9999; 
+
+    .modal-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 60%;
+        width: 80%;
+        background-color: rgba(255, 255, 255, 0.568);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-title-and-close {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between; 
+    }
+
+    .store-paragraph { 
+        display: inline-block;
+        width: 20%;
+        text-align: center;
+        background-color: rgb(144, 204, 204);
+        border: 1px solid rgba(0, 0, 0, 0.329);
+        box-shadow: 0px 0px 1px 0px black;
+        border-radius: 200px;
+        padding: 7px; 
+    }
+
+    .modal-elements {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        gap: 20px;
+        margin: 15px;
+
+        .login-icon {
+            position: relative;
+            right: 0px; 
+            cursor: pointer; 
+        }
+
+        div {
+            width: 100%;
+            background-color: rgba(107, 146, 146, 0.445);
+            border: 1px solid rgba(0, 0, 0, 0.274);
+            border-radius: 10px; 
+            box-shadow: 0px 0px 0px 0px black; 
+            padding: 10px;
+
+            &:hover {
+                background-color: rgba(107, 146, 146, 0.774);  
+                cursor: pointer; 
+            }
+        }   
+    } 
+
+    .close-modal {
+        cursor: pointer; 
+    }
 }
