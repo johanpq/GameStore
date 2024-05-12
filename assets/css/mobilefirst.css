@@ -5,10 +5,17 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+body {
+    background-color: #202020;
+}
+
 header {
     height: 120px;
-    background-color: rgb(53, 45, 36);
-    width: 100vw;
+    /* background-color: rgb(53, 45, 36); */
+    /* background-color: #727b80; */
+    background-color: #ffffff; 
+    width: 100%;
 }
 
 .header-content {
@@ -19,12 +26,28 @@ header {
     align-items: center;
     gap: 10px;
 
+    .navagate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer; 
 
-    img {
-        max-width: 110px;
-        border-radius: 20px;
-        padding: 5px;
-        margin-left: 10px;
+        img {
+            max-width: 110px;
+            border-radius: 20px;
+            padding: 5px;
+            margin-left: 10px;
+        }
+    
+        .expand-more {
+            height: 34px; 
+            width: 44px; 
+        }
+
+        &:hover {
+            transform: translate(0px, 3px);
+            transition: transform .2s;
+        }
     }
 
     hr {
@@ -38,7 +61,8 @@ header {
         flex-grow: 0;
         flex-shrink: 1;
         text-align: center;
-        background-color: rgb(144, 204, 204);
+       /*  background-color: rgb(144, 204, 204); */
+        background-color: #5a5997;
         border: 1px solid black;
         box-shadow: 0px 0px 1px 0px black;
         border-radius: 200px;
@@ -59,13 +83,13 @@ header {
 }
 
 .modal {
-    display: block;
+    display: none;
     position: fixed; 
     top: 0; 
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(/assets/images/pexels-pixabay-159393.jpg);
+    background-image: url(../images/pexels-pixabay-159393.jpg); 
     background-position: top center;
     background-size: cover;  
     /* background-color: rgb(167, 105, 105); */ 
@@ -78,7 +102,11 @@ header {
         transform: translate(-50%, -50%);
         height: 60%;
         width: 80%;
-        background-color: rgba(255, 255, 255, 0.568);
+        /* background-color: rgba(255, 255, 255, 0.568); */
+        /* background-color: #96281b; */
+        /* background-color: #34495e; */
+        /* background-color: #2c3e50; */
+        background-color: #0d1325d8; /* #273c75 original */
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -94,11 +122,13 @@ header {
         display: inline-block;
         width: 20%;
         text-align: center;
-        background-color: rgb(144, 204, 204);
+       /*  background-color: rgb(144, 204, 204); */
+        background-color: #5a5997;
         border: 1px solid rgba(0, 0, 0, 0.329);
         box-shadow: 0px 0px 1px 0px black;
         border-radius: 200px;
         padding: 7px; 
+        font-weight: bold;
     }
 
     .modal-elements {
