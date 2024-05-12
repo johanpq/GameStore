@@ -1,0 +1,67 @@
+.iconRotation {
+    transform: rotate(180deg);
+    transition: transform .2s; 
+}
+
+.iconRotationBack {
+    transform: rotate(0deg);
+    transition: transform .2s;
+}
+
+.modalExpand {
+    display: block;
+    position: fixed;  
+    top: 120px;  
+    left: 10px; 
+    width: 60%;   
+    /* height: 300px;    */    
+    background-color: rgb(56, 47, 47);
+    border: 1px solid rgba(0, 0, 0, 0.295);
+    box-sizing: 0px 0px 0px 0px rgba(0, 0, 0, 0.301);
+    border-radius: 10px;
+    z-index: 9999; 
+
+
+    .modal-elements {
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+        margin: 15px;
+
+        .title {
+            align-self: flex-start;
+            margin-bottom: 10px; 
+        }
+
+        .elements {
+            display: flex;
+            color: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100%;
+            width: 100%;
+            margin-left: 20px;  
+            gap: 15px; 
+
+
+            div {
+                text-align: center;
+                width: 50%;  
+                background-color: rgb(86, 110, 103);
+                border: 1px solid rgba(0, 0, 0, 0.329);
+                box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.322);
+                border-radius: 5px;
+                padding: 5px;
+
+                &:hover {
+                    cursor: pointer; 
+                    background-color: rgba(245, 245, 220, 0.596);  
+                    transition: background-color .1s;
+                     
+                }
+            }
+        } 
+    } 
+}
