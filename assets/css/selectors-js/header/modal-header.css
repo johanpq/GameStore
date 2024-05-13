@@ -10,7 +10,7 @@
 
 .modalExpand {
     display: block;
-    position: fixed;  
+    position: absolute;   
     top: 120px;  
     left: 10px; 
     width: 60%;   
