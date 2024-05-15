@@ -8,10 +8,10 @@
 
 body {
     background-color: #1C2026; 
-    background-image: url(../images/slider/background-elden-ring-2k.jpg);    
-    background-position: top center; 
+    background-image: url(../images/slider/background-elden-ring-2k.jpg);     
+    background-position: top center;  
     background-repeat: no-repeat;
-    background-size: cover;  
+    background-size: cover;   
 }
 
 header {
@@ -179,25 +179,57 @@ main {
     
     .main-head {
         display: flex; 
-        align-items: center;
+        height: 100%; 
+        align-items: center; 
+        justify-content: space-between;    
         margin-top: 20px;
-    
-        .search-main-head-icon {  
-            position: relative; 
-            left: 30px;    
-            cursor: pointer;  
-        }
-     
-        span {
+
+        .title-and-image {
+            display: flex; 
+            align-items: center;
+            justify-content: flex-start; 
+            gap: 75px; 
+
+            .search-main-head-icon {  
+                position: relative; 
+                left: 30px;    
+                cursor: pointer;  
+            }  
+
+            span { 
+                color: #ffffff; 
+                font-size: 1.5em; 
+                /* background-color: #ffec02c9; */
+                border: 1px solid #0000006b;
+                box-shadow: 1px 1px 7px 1px #0000007d;
+                border-radius: 10px; 
+                font-weight: 700;     
+                padding: 5px;  
+            } 
+        } 
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            gap: 10px; 
             color: #ffffff; 
-            font-size: 1.5em; 
-            background-color: #ffec02c9;
-            border: 1px solid #00000054;
+            font-size: 1.2em; 
+            /* background-color: #ffec02c9; */
+            border: 1px solid #0000006b;
             box-shadow: 1px 1px 7px 1px #0000007d;
             border-radius: 10px; 
             font-weight: 700;     
             padding: 5px; 
-            margin: auto;  
+            cursor: pointer; 
+
+            .categories-element {
+                color: #ffec02c9;    
+            }
+
+            &:hover {
+                border: 1px solid #f1f1f19d;
+            } 
         } 
     } 
 
