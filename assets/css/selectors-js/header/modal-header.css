@@ -1,9 +1,9 @@
-.iconRotation {
+.iconRotationCat {
     transform: rotate(180deg);
     transition: transform .2s; 
 }
 
-.iconRotationBack {
+.iconRotationBackCat {
     transform: rotate(0deg);
     transition: transform .2s;
 }

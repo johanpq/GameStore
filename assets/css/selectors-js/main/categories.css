@@ -1,13 +1,13 @@
-.iconRotationCat {
+.iconRotation {
     transform: rotate(180deg);
     transition: transform .2s; 
 }
 
-.iconRotationBackCat {
+.iconRotationBack {
     transform: rotate(0deg);
     transition: transform .2s;
 } 
-
+ 
 .selectedElement {
     background-color: yellow !important;   
 }
