@@ -1,9 +1,9 @@
-.iconRotation {
+.iconRotationCat {
     transform: rotate(180deg);
     transition: transform .2s; 
 }
 
-.iconRotationBack {
+.iconRotationBackCat {
     transform: rotate(0deg);
     transition: transform .2s;
 }
@@ -15,7 +15,7 @@
     left: 10px; 
     width: 60%;   
     /* height: 300px;    */    
-    background-color: rgb(56, 47, 47);
+    background-color: #1C2026; 
     border: 1px solid rgba(0, 0, 0, 0.295);
     box-sizing: 0px 0px 0px 0px rgba(0, 0, 0, 0.301);
     border-radius: 10px;
@@ -30,13 +30,14 @@
         margin: 15px;
 
         .title {
+            color: #A4A5A6; 
             align-self: flex-start;
             margin-bottom: 10px; 
         }
 
         .elements {
             display: flex;
-            color: white;
+            color: #ffec02c9;   
             flex-direction: column;
             justify-content: center;
             align-items: flex-start;
@@ -49,7 +50,7 @@
             div {
                 text-align: center;
                 width: 50%;  
-                background-color: rgb(86, 110, 103);
+                background-color: #a4a5a68e;  
                 border: 1px solid rgba(0, 0, 0, 0.329);
                 box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.322);
                 border-radius: 5px;
@@ -57,7 +58,7 @@
 
                 &:hover {
                     cursor: pointer; 
-                    background-color: rgba(245, 245, 220, 0.596);  
+                    background-color: #465059;    
                     transition: background-color .1s;
                      
                 }
