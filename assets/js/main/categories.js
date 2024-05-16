@@ -7,7 +7,7 @@ const categoryModalElements = document.createElement('div');
 const categoryElements = document.createElement('div');
 
 const category = ["All", "SoulsLike", "Moba", "FPS"];
- 
+
 let isModal = false; 
  
 const createModal = categoriesContainer.addEventListener('click', () => {
