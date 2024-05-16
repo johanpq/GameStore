@@ -1,6 +1,6 @@
 const categoriesContainer = document.querySelector('.categories');
 const changeCategory = document.querySelector('span.categories-element');
-const expandIcon = document.querySelector('.expand-moreCat');
+const expandIcon = document.querySelector('.expand-category');    
 
 const modalCategoryContainer = document.createElement('div');
 const categoryModalElements = document.createElement('div');
@@ -17,7 +17,7 @@ const createModal = categoriesContainer.addEventListener('click', () => {
         expandIcon.classList.remove('iconRotationBackCat'); 
     } else { 
         expandIcon.classList.remove('iconRotationCat');
-        expandIcon.classList.add('iconRotationBackCat'); 
+        expandIcon.classList.add('iconRotationBackCat');  
     } 
    
     modalCategoryContainer.classList.toggle('modalExpandCategories'); 
@@ -29,8 +29,8 @@ const createModal = categoriesContainer.addEventListener('click', () => {
 
     if(!modalCategoryContainer.classList.contains("modalExpandCategories")) {  
         categoryElements.innerHTML = "";
-        iconExpand.classList.remove('iconRotationCat');
-        iconExpand.classList.add('iconRotationBackCat');
+        expandIcon.classList.remove('iconRotationCat');
+        expandIcon.classList.add('iconRotationBackCat');
     }
  
     document.body.appendChild(modalCategoryContainer);      
@@ -72,7 +72,7 @@ function showCategory(modal, container) {
                 modalCategoryContainer.classList.remove('modalExpandCategories');
                 expandIcon.classList.remove('iconRotationCat');
                 expandIcon.classList.add('iconRotationBackCat');
-                modal.remove(); 
+                modal.remove();  
             } 
         })
     }) 
