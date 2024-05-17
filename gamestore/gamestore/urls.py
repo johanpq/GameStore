@@ -18,11 +18,18 @@ from django.contrib import admin
 from django.urls import path, path
 from games.views import GameViewSet, CategoryViewSet
 
-game_view = GameViewSet.as_view({"get": "list", "post": "create"})
-category_view = CategoryViewSet.as_view({"get": "list", "post": "create"})
+list_methods = {"get": "list", "post": "create"}
+detail_methods = {"get": "retrieve", "put": "update", "delete": "destroy"}
+
+game_list = GameViewSet.as_view(list_methods)
+game = GameViewSet.as_view(detail_methods)
+
+category_list = CategoryViewSet.as_view(list_methods)
+category = CategoryViewSet.as_view(detail_methods)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('games/', game_view),
-    path('category/', category_view),
+    path('games/', game_list),
+    path('category/', category_list),
+    path('category/<int:pk>/', category, name='category-detail')
 ] 

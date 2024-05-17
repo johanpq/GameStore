@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from .models import Games, Category
 from .api.serializers import GameSerializer, CategorySerializer
