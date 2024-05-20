@@ -9,5 +9,6 @@
 
     .login-icon {
         display: block; 
+        cursor: pointer; 
     } 
 } 
