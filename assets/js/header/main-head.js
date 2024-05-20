@@ -52,7 +52,7 @@ searchIcon.addEventListener('click', () => {
     Modalelements.appendChild(textInput);  
     Modalelements.appendChild(svgElement);
     svgElement.appendChild(pathElement);   
-})
+}) 
 
 svgElement.addEventListener('click', () => {
     ContainerModal.remove();  
