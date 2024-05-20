@@ -1,0 +1,13 @@
+@media screen and (min-width: 910px) {
+    .menu-icon {
+        display: none;
+    } 
+
+    .modal {
+        display: none; 
+    }
+
+    .login-icon {
+        display: block; 
+    } 
+} 
