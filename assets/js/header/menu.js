@@ -79,7 +79,7 @@ headerContent.classList.add('divLeftContent');
 
 const divRightContent = document.querySelector('.right-content');
 
-window.addEventListener('resize', function() {
+const rezizeWithViewPort = window.addEventListener('resize', function() {
     if (window.innerWidth >= minWidth) {
         div.innerHTML = "Suport";
         div2.innerHTML = "Contribute";
@@ -90,11 +90,42 @@ window.addEventListener('resize', function() {
         svgLogin.appendChild(pathElementLogin);
         divRightContent.appendChild(svgLogin);
     } else {
+        headerContent.appendChild(div);
+        headerContent.appendChild(div2); 
+        svgLogin.setAttribute("fill", "#e8eaed"); 
+        svgLogin.appendChild(pathElementLogin);
+        divRightContent.appendChild(svgLogin);
+
         divRightContent.removeChild(svgLogin);
         headerContent.removeChild(div);
         headerContent.removeChild(div2); 
     } 
-}) 
+})  
+
+window.addEventListener('load', LoadContent); 
+
+function LoadContent() {
+    if (window.innerWidth >= minWidth) {
+        div.innerHTML = "Suport";
+        div2.innerHTML = "Contribute";
+
+        headerContent.appendChild(div);
+        headerContent.appendChild(div2); 
+        svgLogin.setAttribute("fill", "#e8eaed"); 
+        svgLogin.appendChild(pathElementLogin);
+        divRightContent.appendChild(svgLogin);
+    } else {
+        headerContent.appendChild(div);
+        headerContent.appendChild(div2); 
+        svgLogin.setAttribute("fill", "#e8eaed"); 
+        svgLogin.appendChild(pathElementLogin);
+        divRightContent.appendChild(svgLogin);
+
+        divRightContent.removeChild(svgLogin);
+        headerContent.removeChild(div);
+        headerContent.removeChild(div2); 
+    } 
+}
 
 
 /* ============================================= */
