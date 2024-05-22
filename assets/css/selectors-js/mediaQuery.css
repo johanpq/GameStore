@@ -1,4 +1,6 @@
 @media screen and (min-width: 910px) {
+    /* Used in JS */
+
     .menu-icon {
         display: none;
     } 
@@ -11,4 +13,19 @@
         display: block; 
         cursor: pointer; 
     } 
+
+    .search-main-head-icon {
+        z-index: 10; 
+        outline: none; 
+    }
+
+    .search-main-head-iconQuery {
+        position: relative; 
+        left: -5px;  
+        padding: 5px;
+        border-radius: 10px;  
+        text-align: left; 
+    }
+
+    /* =========== */
 } 
