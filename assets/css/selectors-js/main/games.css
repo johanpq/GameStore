@@ -1,0 +1,105 @@
+.main-container-game {  
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    height: 100%; 
+    padding: 20px;
+    margin: 30px; 
+    background-color: #2D3540; 
+    border: 1px solid rgba(0, 0, 0, 0.295); 
+    box-shadow: 0px 0px 4px 3px #00000080; 
+    border-radius: 10px;  
+
+    .game-title {
+        font-size: 2em;  
+        align-self: center; 
+        /* background-color: #ffec02c9; */
+        border: 1px solid #00000054;
+        box-shadow: 1px 1px 10px 1px #0000007d;
+        border-radius: 10px; 
+        color: #ffffff;  
+        padding: 5px; 
+        margin-bottom: 20px;   
+    }
+
+    
+    .container-games {
+        height: 100%; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+        width: 100%; 
+
+
+        img {
+            width: 100%;  
+            border: 1px solid rgba(0, 0, 0, 0.295);
+            box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.322);   
+            border-radius: 10px; 
+        }
+ 
+        .buttonsAndPrices {
+            display: flex;
+            width: 100%; 
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center; 
+            gap: 15px;    
+
+            .price-game {
+                font-size: 1.5em;  
+                color: #0A0B0D;    
+                margin: 20px 0px 10px 0px;      
+            }
+
+            .buy-game {
+                width: 50%;  
+                font-size: 1.4em;
+                color: black; 
+                background-color: #ffec02c9;
+                border: 1px solid rgba(0, 0, 0, 0.301); 
+                box-shadow: 0px 0px 2px 2px #0000006b;
+                border-radius: 6px;
+                padding: 5px; 
+                cursor: pointer;  
+        
+                &:hover {
+                    background-color: #ffea0291;
+                    transition: background-color .4s;  
+                } 
+            }
+
+            .cart {
+                width: 50%;  
+                font-size: 1.4em;
+                color: black; 
+                background-color: #ffea024f;
+                border: 1px solid rgba(0, 0, 0, 0.301); 
+                box-shadow: 0px 0px 2px 2px #0000006b;
+                border-radius: 6px; 
+                padding: 5px; 
+                cursor: pointer; 
+        
+                &:hover {
+                    background-color: #ffec02c9;
+                    transition: background-color .4s;    
+                }
+
+            }
+        }
+    }
+
+    .description { 
+        font-size: 1.1em;   
+        color: #A4A5A6;      
+        justify-self: center;   
+        text-align: center; 
+        padding: 5px; 
+        margin: 30px 0px; 
+    }
+}
+
+
+
