@@ -28,4 +28,18 @@
     }
 
     /* =========== */
+
+
+    .container-games {
+        flex-direction: row !important;  
+    }
+ 
+    .game-title {  
+        align-self: flex-start !important;      
+    } 
+
+    .description { 
+        align-self: flex-start;  
+        width: 65%;  
+    }
 } 
