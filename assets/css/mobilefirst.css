@@ -58,24 +58,31 @@ header {
         transform: rotateY(90); 
     }
 
-    .store-paragraph { 
-        flex-basis: 130px;
-        flex-grow: 0;
-        flex-shrink: 1;
-        text-align: center;
-        background-color: #ffec02c9;    
-        border: 1px solid rgba(0, 0, 0, 0.301); 
-        box-shadow: 1px 0px 5px 0px black;
-        border-radius: 200px;
-        padding: 7px;  
-    }
-
-    .left-content {
+    .left-content { 
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center; 
         gap: 20px; 
+
+        .store-paragraph { 
+            flex-basis: 130px;
+            flex-grow: 0;
+            flex-shrink: 1;
+            text-align: center;
+            background-color: #ffec02c9;   
+            color: black; 
+            font-weight: bold;       
+            border: 1px solid rgba(0, 0, 0, 0.301); 
+            box-shadow: 1px 0px 5px 0px black;
+            border-radius: 200px;
+            padding: 7px;  
+
+            &:hover {
+                background-color: #ffea02a1;    
+                color: black;
+            }
+        }
 
         div {
             color: rgba(255, 255, 255, 0.685);  
