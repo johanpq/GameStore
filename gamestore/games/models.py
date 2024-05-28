@@ -14,6 +14,7 @@ class Games(models.Model):
     price = models.FloatField()
     image = models.ImageField(upload_to='images/')
     description = models.TextField()
+    little_description = models.CharField(max_length=21, default='')
     Category = models.ForeignKey(Category, on_delete=models.CASCADE)
     
     def __str__(self):
