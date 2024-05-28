@@ -17,6 +17,7 @@ async function showGames() {
     try {
         const games = await getGames();    
         createFreeGame(games);
+        createPopularPaidGames(games); 
         console.log(games); 
     }
     catch (error) {
@@ -67,11 +68,29 @@ const createFreeGame = (games) => {
 
     CreateGames(testemunhalContainer, gameTitle0, gameImg0, gameImgAlt0, littleDescrip0, gamePrice0);
     CreateGames(testemunhalContainer, gameTitle1, gameImg1, gameImgAlt1, littleDescrip1, gamePrice1);
-    CreateGames(testemunhalContainer, gameTitle2, gameImg2, gameImgAlt2, littleDescrip2, gamePrice2);
-/*     games.map((game) => {
-        CreateGames(testemunhalContainer)
-    }) */ 
-};
+    CreateGames(testemunhalContainer, gameTitle2, gameImg2, gameImgAlt2, littleDescrip2, gamePrice2)   
+}; 
+
+const createPopularPaidGames = (games) => {
+    const h3Title = "Popular Games";
+
+    const testemunhal = document.createElement('div');
+    testemunhal.classList.add('testemunhal');
+
+    const h3 = document.createElement('h3');
+    h3.textContent = h3Title;
+
+    const testemunhalContainer = document.createElement('div');
+    testemunhalContainer.classList.add('testemunhal-container');
+
+    testemunhal.appendChild(h3);
+    testemunhal.appendChild(testemunhalContainer);
+    mainContainer.appendChild(testemunhal);
+
+    games.map((game) => {
+        CreateGames(testemunhalContainer, game.title, game.image, "Celeste", game.description, game.price);
+    })
+}
 
 function CreateGames(testemunhalContainer, gameTitle, imgSrc, imgAlt, littleDescrip, gamePrice) {
     const gameCard = document.createElement('div');
@@ -102,4 +121,4 @@ function CreateGames(testemunhalContainer, gameTitle, imgSrc, imgAlt, littleDesc
 }
 
 /* createFreeGame(); */
-showGames();   
+showGames(); 
