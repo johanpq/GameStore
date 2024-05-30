@@ -1,0 +1,148 @@
+.modalLogin { 
+    display: block;     
+    position: fixed;  
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(170, 163, 163);
+    background-position: top center;
+    background-size: cover;  
+    z-index: 9999; 
+
+    .modal-container-login { 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        height: 60%;
+        width: 80%;  
+        background-color: #1C2026;   
+        padding: 20px;
+        border-radius: 10px; 
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-title-and-close-login {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between; 
+
+        .login {  
+            display: inline-block; 
+            width: 20%; 
+            text-align: center;
+            background-color: #A4A5A6;     
+            border: 1px solid rgba(0, 0, 0, 0.329);
+            box-shadow: 0px 0px 1px 0px black;
+            border-radius: 200px; 
+            padding: 7px; 
+            font-weight: bold; 
+        }
+
+        .close-login {
+            cursor: pointer; 
+        }
+    }
+
+    .modal-elements-login { 
+        display: flex;
+        height: 80%; 
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        background-color: #1C2026;   
+        border: 1px solid rgba(0, 0, 0, 0.288); 
+        box-shadow: 0px 0px 0px 0px;
+        border-radius: 10px;  
+        margin-top: 15px; 
+
+        .container-username, .container-password {
+            position: relative;
+            display: flex;   
+            justify-content: center;
+            align-items: center;  
+        }
+       
+        input {   
+            border: 1px solid rgba(0, 0, 0, 0.336); 
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.329); 
+            border-radius: 7px;  
+            padding: 5px;    
+            margin-left: 10px; 
+            padding-left: 5px;  
+            padding-right: 30px; /* Adjust padding to avoid overlapping with SVG */
+        }
+
+        span {
+            position: absolute; /* Change position to absolute */
+            right: 5px; /* Adjust the position as needed */
+            top: 55%; /* Center vertically */
+            transform: translateY(-50%); /* Center vertically */
+            margin: 0; /* Remove margin */ 
+            padding: 0; /* Remove padding */
+
+            svg {
+                fill: rgba(0, 0, 0, 0.616);  
+                cursor: pointer; 
+
+                &:hover {
+                    fill: rgba(0, 0, 0, 0.767);  
+                }
+            }
+        }
+    } 
+
+    a {
+        text-decoration: none; 
+    }
+
+    .forgotPass {
+        color: #A4A5A6;   
+        margin-top: -10px;  
+        margin-left: 200px;  
+        font-size: .8em;  
+        cursor: pointer; 
+
+        &:hover {
+            color: #929394; 
+        }
+    }
+
+    .loginBtn, .signupBtn {   
+        width: 30%;   
+        padding: 5px;     
+        background-color: #1C2026;
+        border: 1px solid rgba(0, 0, 0, 0.336);
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.308);
+        border-radius: 5px;  
+        margin-top: -10px; 
+        cursor: pointer;  
+    } 
+
+    .loginBtn { 
+        background-color: #465059;
+        color: white; 
+
+        &:hover {
+            background-color: #3c464e; 
+            transition: background-color .2s;  
+        } 
+    }
+
+    .signupBtn {
+        background-color: #46505991;
+        color: white; 
+        
+        &:hover {
+            background-color: #465059; 
+            transition: background-color .2s; 
+        }
+    }
+
+    .close-modal {
+        fill: white; 
+        cursor: pointer; 
+    }
+}
