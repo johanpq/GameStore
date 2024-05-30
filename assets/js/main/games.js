@@ -49,19 +49,19 @@ const createFreeGame = (games) => {
     mainContainer.appendChild(testemunhal);
 
     const gameTitle0 = "Elden Ring";
-    const gameImg0 = "assets/images/slider/elden-ring-2k-wallpaper.jpg";
+    const gameImg0 = "assets/images/games/elden-ring-2k-wallpaper.jpg";
     const gameImgAlt0 = "Elden Ring";
     const littleDescrip0 = "Epic RPG adventure";
     const gamePrice0 = "R$ 00";
 
     const gameTitle1 = "League of Legends";
-    const gameImg1 = "assets/images/slider/lol-evelyn.jpg";
+    const gameImg1 = "assets/images/games/lol-evelyn.jpg";
     const gameImgAlt1 = "League of Legends";
     const littleDescrip1 = "Intense MOBA battles";
     const gamePrice1 = "R$ 00";
 
     const gameTitle2 = "Counter Strike 2";
-    const gameImg2 = "assets/images/slider/counter-strike-2-game-2k-wallpaper-uhdpaper.com-222@1@k.jpg";
+    const gameImg2 = "assets/images/games/counter-strike-2-game-2k-wallpaper-uhdpaper.com-222@1@k.jpg";
     const gameImgAlt2 = "Counter Strike 2";
     const littleDescrip2 = "Tactical online shooter";
     const gamePrice2 = "R$ 00";
