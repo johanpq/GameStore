@@ -88,7 +88,7 @@ const createPopularPaidGames = (games) => {
     mainContainer.appendChild(testemunhal);
 
     games.map((game) => {
-        CreateGames(testemunhalContainer, game.title, game.image, "Celeste", game.description, game.price);
+        CreateGames(testemunhalContainer, game.title, game.image, game.title, game.little_description, game.price);
     })
 }
 
