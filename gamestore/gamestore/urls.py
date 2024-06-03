@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, path
 from games.views import GameViewSet, CategoryViewSet
+from django.conf import settings
+from django.conf.urls.static import static
 
 list_methods = {"get": "list", "post": "create"}
 detail_methods = {"get": "retrieve", "put": "update", "delete": "destroy"}
@@ -32,4 +34,4 @@ urlpatterns = [
     path('games/', game_list),
     path('category/', category_list),
     path('category/<int:pk>/', category, name='category-detail')
-] 
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
