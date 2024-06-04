@@ -1,77 +1,75 @@
-.modalLogin { 
-    display: block;     
-    position: fixed;  
-    top: 0; 
+.modalLogin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgb(170, 163, 163);
     background-position: top center;
-    background-size: cover;  
-    z-index: 9999; 
+    background-size: cover;
+    z-index: 9999;
 
-    .modal-container-login { 
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); 
-        height: 100%; 
-        width: 80%;  
-        background-color: #1C2026;   
-        padding: 20px;
-        border-radius: 10px; 
+    .modal-container-login {
+        background-color: #1C2026;
+        border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        width: 80%; 
+        padding: 10px;
+        min-height: 300px; 
     }
 
     .modal-title-and-close-login {
         display: flex;
         flex-direction: row-reverse;
-        justify-content: space-between; 
+        justify-content: space-between;
 
-        .login {  
-            display: inline-block; 
-            width: 20%; 
+        .login {
+            display: inline-block;
+            width: 20%;
             text-align: center;
-            background-color: #A4A5A6;     
+            background-color: #A4A5A6;
             border: 1px solid rgba(0, 0, 0, 0.329);
             box-shadow: 0px 0px 1px 0px black;
-            border-radius: 200px; 
-            padding: 7px; 
-            font-weight: bold; 
+            border-radius: 200px;
+            padding: 7px;
+            font-weight: bold;
         }
 
         .close-login {
-            cursor: pointer; 
+            cursor: pointer;
         }
     }
 
-    .modal-elements-login { 
+    .modal-elements-login {
         display: flex;
-        height: 80%; 
-        flex-direction: column; 
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 20px;
-        background-color: #1C2026;   
-        border: 1px solid rgba(0, 0, 0, 0.288); 
+        background-color: #1C2026;
+        border: 1px solid rgba(0, 0, 0, 0.288);
         box-shadow: 0px 0px 0px 0px;
-        border-radius: 10px;  
-        margin-top: 15px; 
+        border-radius: 10px;
+        margin-top: 15px;
+        padding: 10px;
 
         .container-username, .container-password {
             position: relative;
-            display: flex;   
+            display: flex;
             justify-content: center;
-            align-items: center;  
+            align-items: center;
         }
-       
-        input {   
-            border: 1px solid rgba(0, 0, 0, 0.336); 
-            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.329); 
-            border-radius: 7px;  
-            padding: 5px;    
-            margin-left: 10px; 
-            padding-left: 5px;  
+
+        input {
+            border: 1px solid rgba(0, 0, 0, 0.336);
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.329);
+            border-radius: 7px;
+            padding: 5px;
+            margin-left: 10px;
+            padding-left: 5px;
             padding-right: 30px; /* Adjust padding to avoid overlapping with SVG */
         }
 
@@ -80,69 +78,78 @@
             right: 5px; /* Adjust the position as needed */
             top: 55%; /* Center vertically */
             transform: translateY(-50%); /* Center vertically */
-            margin: 0; /* Remove margin */ 
+            margin: 0; /* Remove margin */
             padding: 0; /* Remove padding */
 
             svg {
-                fill: rgba(0, 0, 0, 0.616);  
-                cursor: pointer; 
+                fill: rgba(0, 0, 0, 0.616);
+                cursor: pointer;
 
                 &:hover {
-                    fill: rgba(0, 0, 0, 0.767);  
+                    fill: rgba(0, 0, 0, 0.767);
                 }
             }
         }
-    } 
+    }
 
     a {
-        text-decoration: none; 
+        text-decoration: none;
     }
 
     .forgotPass {
-        color: #A4A5A6;   
-        margin-top: -10px;  
-        margin-left: 200px;  
-        font-size: .8em;  
-        cursor: pointer; 
+        color: #A4A5A6;
+        margin-top: -10px;
+        margin-left: 200px;
+        font-size: .8em;
+        cursor: pointer;
 
         &:hover {
-            color: #929394; 
+            color: #929394;
         }
     }
 
-    .loginBtn, .signupBtn {   
-        width: 30%;   
-        padding: 5px;     
+    .loginBtn {
+        font-size: 1em; 
+        width: 30%;
+        padding: 5px;
         background-color: #1C2026;
         border: 1px solid rgba(0, 0, 0, 0.336);
         box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.308);
-        border-radius: 5px;  
-        margin-top: -10px; 
-        cursor: pointer;  
-    } 
+        border-radius: 5px;
+        margin-top: -10px;
+        cursor: pointer;
 
-    .loginBtn { 
         background-color: #465059;
-        color: white; 
+        color: white;
 
         &:hover {
-            background-color: #3c464e; 
-            transition: background-color .2s;  
-        } 
-    }
-
-    .signupBtn {
-        background-color: #46505991;
-        color: white; 
-        
-        &:hover {
-            background-color: #465059; 
-            transition: background-color .2s; 
+            background-color: #3c464e;
+            transition: background-color .2s;
         }
     }
 
+    .signuplink {
+        width: 30%;
+        text-align: center;
+        color: white;
+        background-color: #46505991;
+
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.336);
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.308);
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #465059;
+            transition: background-color .2s;
+        }
+        color: white;
+        text-decoration: none;
+    }
+
     .close-modal {
-        fill: white; 
-        cursor: pointer; 
+        fill: white;
+        cursor: pointer;
     }
 }

@@ -318,8 +318,10 @@ divForgotPassword.classList.add('forgotPass');
 const buttonSignIn = document.createElement('button');
 buttonSignIn.classList.add('loginBtn');
 
-const buttonSignUp = document.createElement('button');
-buttonSignUp.classList.add('signupBtn');
+const linkSingupPage = document.createElement('a');
+linkSingupPage.classList.add('signuplink'); 
+linkSingupPage.setAttribute('href', '../../assets/pages/signup.html');  
+linkSingupPage.setAttribute('target', '_self');  
 
 
 svgLogin.addEventListener('click', () => {
@@ -329,7 +331,7 @@ svgLogin.addEventListener('click', () => {
     divForgotPassword.innerHTML = "Forgot password?";
 
     buttonSignIn.innerHTML = "Sign in";
-    buttonSignUp.innerHTML = "Sign up";
+    linkSingupPage.innerHTML = "Sign up";
 
     inputPassword.setAttribute('type', 'password');
 
@@ -383,7 +385,7 @@ svgLogin.addEventListener('click', () => {
     modalElementsLogin.appendChild(forgotPasswordLink);
     forgotPasswordLink.appendChild(divForgotPassword);
     modalElementsLogin.appendChild(buttonSignIn);
-    modalElementsLogin.appendChild(buttonSignUp);
+    modalElementsLogin.appendChild(linkSingupPage);
 })
 
 /* ================================= */
