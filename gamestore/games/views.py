@@ -6,6 +6,7 @@ from rest_framework.response import Response
 
 
 class GameViewSet(ModelViewSet):
+    queryset = Games.objects.all()
     serializer_class = GameSerializer
     
 class CategoryViewSet(ModelViewSet):
