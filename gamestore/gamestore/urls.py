@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 list_methods = {"get": "list", "post": "create"}
-detail_methods = {"get": "retrieve", "put": "update", "delete": "destroy"}
+detail_methods = {"get": "retrieve", "put": "update", "delete": "destroy"}# CRUD operations
 
 game_list = GameViewSet.as_view(list_methods)
 game = GameViewSet.as_view(detail_methods)
@@ -34,5 +34,6 @@ urlpatterns = [
     path('games/', game_list),
     path('game/<int:pk>/', game, name='game-detail'),
     path('category/', category_list),
-    path('category/<int:pk>/', category, name='category-detail')
+    path('category/<int:pk>/', category, name='category-detail'),
+    path('category/<int:pk>/games/', CategoryViewSet.as_view({'get': 'games_by_category'}), name='category-games'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
