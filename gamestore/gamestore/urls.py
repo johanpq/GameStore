@@ -32,6 +32,7 @@ category = CategoryViewSet.as_view(detail_methods)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('games/', game_list),
+    path('game/<int:pk>/', game, name='game-detail'),
     path('category/', category_list),
     path('category/<int:pk>/', category, name='category-detail')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
