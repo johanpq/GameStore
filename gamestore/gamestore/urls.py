@@ -33,7 +33,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('games/', game_list),
     path('game/<int:pk>/', game, name='game-detail'),
-    path('category/', category_list),
+    path('categories/', category_list),
     path('category/<int:pk>/', category, name='category-detail'),
     path('category/<int:pk>/games/', CategoryViewSet.as_view({'get': 'games_by_category'}), name='category-games'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
