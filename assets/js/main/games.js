@@ -74,7 +74,7 @@ function CreateGames(testemunhalContainer, gameId, gameTitle, imgSrc, imgAlt, li
 
     const price = document.createElement('div');
     price.classList.add('price');
-    price.textContent = gamePrice;
+    price.textContent = " R$ " + gamePrice;
 
     linkSell.addEventListener('click', () => {
         const sellPageUrl = `assets/pages/sell.html?id=${gameId}`;
