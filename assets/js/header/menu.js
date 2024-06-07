@@ -1,4 +1,4 @@
-const menuIcon = document.querySelector('.menu-icon');
+const menuIcon = document.querySelector('.menu-icon');  
 
 const closeMenuModal = document.querySelector('.close-modal');
 
