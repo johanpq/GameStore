@@ -84,13 +84,13 @@
                 border-radius: 6px; 
                 padding: 5px; 
                 cursor: pointer; 
-        
+            
                 &:hover {
                     background-color: #ffec02c9;
                     transition: background-color .4s;    
                 }
-
             }
+            
         }
     }
 
