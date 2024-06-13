@@ -67,20 +67,28 @@
                     margin-top: 10px;  
                 }
 
-                .little-descrip {  
-                    font-size: 1.2em;  
-                    color: #978a5f;    
-                    align-self: flex-start; 
-                    text-align: center; 
-                    padding: 5px;         
-                } 
-
-                .price {
-                    align-self: flex-end;
-                    font-size: 1.2em; 
-                    color: #ffea0283; 
-                    margin: -40px 10px 0px 0px; 
-                } 
+                .descrip-and-price {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px; 
+            
+            
+                    .little-descrip {  
+                        font-size: 1.2em;  
+                        color: #978a5f;    
+                        align-self: flex-start; 
+                        text-align: center;          
+                    } 
+            
+                    .price {
+                        align-self: flex-end;
+                        font-size: 1.2em; 
+                        color: #ffea0283; 
+                        margin-right: 10px;   
+                    } 
+                }
                 
                 &:hover {
                     transform: scale(1.1); 
