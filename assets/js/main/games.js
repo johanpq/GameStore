@@ -68,6 +68,9 @@ function CreateGames(testemunhalContainer, gameId, gameTitle, imgSrc, imgAlt, li
     title.classList.add('title');
     title.textContent = gameTitle;
 
+    const descripAndPrice = document.createElement('div');
+    descripAndPrice.classList.add('descrip-and-price');
+
     const littleDescription = document.createElement('div');
     littleDescription.classList.add('little-descrip');
     littleDescription.textContent = littleDescrip;
@@ -86,8 +89,9 @@ function CreateGames(testemunhalContainer, gameId, gameTitle, imgSrc, imgAlt, li
     linkSell.appendChild(gameCard);
     gameCard.appendChild(img);
     gameCard.appendChild(title);
-    gameCard.appendChild(littleDescription);
-    gameCard.appendChild(price);
+    gameCard.appendChild(descripAndPrice);
+    descripAndPrice.appendChild(littleDescription);
+    descripAndPrice.appendChild(price);
 }
 
 showGames(); 
