@@ -323,6 +323,10 @@ linkSingupPage.classList.add('signuplink');
 linkSingupPage.setAttribute('href', '../../assets/pages/signup.html');  
 linkSingupPage.setAttribute('target', '_self');  
 
+const linkSingupAdmin = document.createElement('a');
+linkSingupAdmin.classList.add('signuplink');
+linkSingupAdmin.setAttribute('href', '../../assets/pages/signupAdmin.html');
+linkSingupAdmin.setAttribute('target', '_self'); 
 
 svgLogin.addEventListener('click', () => {
 
@@ -332,6 +336,7 @@ svgLogin.addEventListener('click', () => {
 
     buttonSignIn.innerHTML = "Sign in";
     linkSingupPage.innerHTML = "Sign up";
+    linkSingupAdmin.innerHTML = "Sign up admin";
 
     inputPassword.setAttribute('type', 'password');
 
@@ -386,6 +391,7 @@ svgLogin.addEventListener('click', () => {
     forgotPasswordLink.appendChild(divForgotPassword);
     modalElementsLogin.appendChild(buttonSignIn);
     modalElementsLogin.appendChild(linkSingupPage);
+    modalElementsLogin.appendChild(linkSingupAdmin);
 })
 
 /* ================================= */
