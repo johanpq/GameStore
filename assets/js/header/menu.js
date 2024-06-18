@@ -54,6 +54,8 @@ menuIcon.addEventListener('click', () => {
     modalMenu.style.display = 'block'; 
 
     storeParagraph.innerHTML = "Store";
+    div.classList.add('elements');
+    div2.classList.add('elements');
     div.innerHTML = "Suport";
     div2.innerHTML = "Contribute";
 
@@ -395,3 +397,128 @@ svgLogin.addEventListener('click', () => {
 })
 
 /* ================================= */
+
+//Admin Features
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    let isSubmit = false;
+
+    let nome;
+
+    // Event listener para o formulário
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if(inputTextLogin.value === inputTextLogin.value && inputPassword.value === inputPassword.value) {
+            isSubmit = true;
+            nome = inputTextLogin.value;
+            updateUiAdminDesktop();
+            updateUiAdminMobile();
+        }
+    });
+
+
+    const divNameAdmin = document.createElement('div');
+
+    const nameAdmin = document.createElement('div');
+
+    function updateUiAdminDesktop() {
+        if(window.innerWidth >= minWidth) {
+
+            if(divNameAdmin.contains(divOptions)) {
+                divNameAdmin.removeChild(divOptions);
+            }
+
+            divNameAdmin.classList.remove('adminContainerWithoutModal');            
+
+            svgLogin.style.display = "none";
+            divNameAdmin.setAttribute('id', 'adminContainer');
+            divNameAdmin.classList.add('adminNameContainer');
+    
+            nameAdmin.classList.add('nameAdmin');
+        
+            nameAdmin.innerHTML = "Hello " + nome;
+            divNameAdmin.appendChild(nameAdmin);
+
+            divNameAdmin.addEventListener('click', createModalOptions);
+
+            divRightContent.appendChild(divNameAdmin);
+        }
+    }
+
+    // Função para atualizar a interface do admin
+    
+    const divOptions = document.createElement('div');
+
+    function updateUiAdminMobile() {
+        if(window.innerWidth < minWidth) {
+            
+            if(divRightContent.contains(divNameAdmin)) {
+                divRightContent.removeChild(divNameAdmin);
+            }
+
+            divOptions.classList.add('adminOptions');
+            svgLogin.style.display = "none";
+            nameAdmin.innerHTML = "Hello " + nome;
+            divNameAdmin.classList.remove('adminNameContainer');
+            divNameAdmin.classList.add('adminContainerWithoutModal');
+    
+            createGames.innerHTML = "Create Games";
+            createGames.classList.add('adminOptions');
+    
+            settings.innerHTML = "Settings";
+            settings.classList.add('adminOptions');
+    
+            divOptions.appendChild(createGames);
+            divOptions.appendChild(settings);
+            
+            modalElement.appendChild(divNameAdmin);
+            divNameAdmin.appendChild(nameAdmin);
+            divNameAdmin.appendChild(divOptions);
+
+            divNameAdmin.removeEventListener('click', createModalOptions);
+        }
+    }
+    
+    // Função para criar o modal de opções
+
+    const modalOptions = document.createElement('div');
+    const divElementsOptionsContainer = document.createElement('div');
+    const divElementsOptions = document.createElement('div');
+    const createGames = document.createElement('div');
+    const settings = document.createElement('div');
+
+    function createModalOptions() { 
+        modalOptions.classList.toggle('modalUserOptions');
+        
+        divElementsOptionsContainer.classList.add('modal-elements');
+    
+        divElementsOptions.classList.add('elements');
+    
+        createGames.innerHTML = "Create Games";
+    
+        settings.innerHTML = "Settings";
+    
+        document.body.appendChild(modalOptions);
+        modalOptions.appendChild(divElementsOptionsContainer);
+        divElementsOptionsContainer.appendChild(divElementsOptions);
+        divElementsOptions.appendChild(createGames);
+        divElementsOptions.appendChild(settings);
+    }
+
+    // Eventos para atualizar o estado
+
+    window.addEventListener('resize', () => {
+        if(isSubmit) {
+            updateUiAdminDesktop();
+            updateUiAdminMobile();
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        if(isSubmit) {
+            updateUiAdminDesktop();
+            updateUiAdminMobile();
+        }
+    })
+});
