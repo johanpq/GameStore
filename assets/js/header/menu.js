@@ -83,6 +83,7 @@ const divRightContent = document.querySelector('.right-content');
 
 const rezizeWithViewPort = window.addEventListener('resize', function() {
     if (window.innerWidth >= minWidth) {
+        modalMenu.remove();
         div.innerHTML = "Suport";
         div2.innerHTML = "Contribute";
 
@@ -97,10 +98,13 @@ const rezizeWithViewPort = window.addEventListener('resize', function() {
         svgLogin.setAttribute("fill", "#e8eaed"); 
         svgLogin.appendChild(pathElementLogin);
         divRightContent.appendChild(svgLogin);
+        modalElement.appendChild(svgLogin);
+        modalElement.appendChild(div);
+        modalElement.appendChild(div2);
 
-        divRightContent.removeChild(svgLogin);
-        headerContent.removeChild(div);
-        headerContent.removeChild(div2); 
+        //divRightContent.removeChild(svgLogin);
+        //headerContent.removeChild(div);
+        //headerContent.removeChild(div2);
     } 
 })  
 
@@ -475,6 +479,11 @@ document.addEventListener('DOMContentLoaded', () => {
             modalElement.appendChild(divNameAdmin);
             divNameAdmin.appendChild(nameAdmin);
             divNameAdmin.appendChild(divOptions);
+
+            // atualizar para manter a ordem de inserção dos elementos
+            modalElement.appendChild(svgLogin);
+            modalElement.appendChild(div);
+            modalElement.appendChild(div2);
 
             divNameAdmin.removeEventListener('click', createModalOptions);
         }
