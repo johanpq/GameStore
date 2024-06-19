@@ -412,9 +412,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event listener para o formulário
     form.addEventListener('submit', (event) => {
-        event.preventDefault();
+        //event.preventDefault();
         if(inputTextLogin.value === inputTextLogin.value && inputPassword.value === inputPassword.value) {
             isSubmit = true;
+            sessionStorage.clear();
+            sessionStorage.setItem("loginDone", true);
             nome = inputTextLogin.value;
             updateUiAdminDesktop();
             updateUiAdminMobile();
@@ -441,12 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
             nameAdmin.classList.add('nameAdmin');
         
-            nameAdmin.innerHTML = "Hello " + nome;
-            divNameAdmin.appendChild(nameAdmin);
-
-            divNameAdmin.addEventListener('click', createModalOptions);
-
-            divRightContent.appendChild(divNameAdmin);
+            updateSessionStorage(nome);
         }
     }
 
@@ -463,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             divOptions.classList.add('adminOptions');
             svgLogin.style.display = "none";
-            nameAdmin.innerHTML = "Hello " + nome;
+            //nameAdmin.innerHTML = "Hello " + nome;
             divNameAdmin.classList.remove('adminNameContainer');
             divNameAdmin.classList.add('adminContainerWithoutModal');
     
@@ -472,20 +469,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
             settings.innerHTML = "Settings";
             settings.classList.add('adminOptions');
-    
-            divOptions.appendChild(createGames);
-            divOptions.appendChild(settings);
-            
-            modalElement.appendChild(divNameAdmin);
-            divNameAdmin.appendChild(nameAdmin);
-            divNameAdmin.appendChild(divOptions);
 
-            // atualizar para manter a ordem de inserção dos elementos
-            modalElement.appendChild(svgLogin);
-            modalElement.appendChild(div);
-            modalElement.appendChild(div2);
+            logOut.innerHTML = "Logout";
+            logOut.classList.add('adminOptions');
 
-            divNameAdmin.removeEventListener('click', createModalOptions);
+            updateSessionStorage(nome);
         }
     }
     
@@ -496,6 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const divElementsOptions = document.createElement('div');
     const createGames = document.createElement('div');
     const settings = document.createElement('div');
+    const logOut = document.createElement('div');
 
     function createModalOptions() { 
         modalOptions.classList.toggle('modalUserOptions');
@@ -507,27 +496,79 @@ document.addEventListener('DOMContentLoaded', () => {
         createGames.innerHTML = "Create Games";
     
         settings.innerHTML = "Settings";
+
+        logOut.innerHTML = "Logout";
+
+        if(!modalOptions.classList.contains('modalUserOptions')) {
+            createGames.innerHTML = "";
+            settings.innerHTML = "";
+            logOut.innerHTML = "";
+        }
+
+        logOut.addEventListener('click', () => {
+            sessionStorage.clear();
+            window.location.replace("http://127.0.0.1:5500/index.html");
+        })
     
         document.body.appendChild(modalOptions);
         modalOptions.appendChild(divElementsOptionsContainer);
         divElementsOptionsContainer.appendChild(divElementsOptions);
         divElementsOptions.appendChild(createGames);
         divElementsOptions.appendChild(settings);
+        divElementsOptions.appendChild(logOut);
     }
 
-    // Eventos para atualizar o estado
+    // Função para guardar dados de login
+    function updateSessionStorage(admName) {
+        sessionStorage.setItem("adminName", admName);
 
-    window.addEventListener('resize', () => {
-        if(isSubmit) {
+        let getAdminName = sessionStorage.getItem("adminName");
+
+        if(admName != undefined && window.innerWidth >= minWidth) {
+            nameAdmin.innerHTML = "Hello " + getAdminName;
+            divNameAdmin.appendChild(nameAdmin);
+
+            divNameAdmin.addEventListener('click', createModalOptions);
+
+            divRightContent.appendChild(divNameAdmin);
+        } else if(admName != undefined && window.innerWidth < minWidth) {
+            nameAdmin.innerHTML = "Hello " + getAdminName;
+            
+            modalElement.appendChild(divNameAdmin);
+            divNameAdmin.appendChild(nameAdmin);
+            divNameAdmin.appendChild(createGames);
+            divNameAdmin.appendChild(settings);
+            divNameAdmin.appendChild(logOut);
+
+            // atualizar para manter a ordem de inserção dos elementos
+            modalElement.appendChild(svgLogin);
+            modalElement.appendChild(div);
+            modalElement.appendChild(div2);
+
+            divNameAdmin.removeEventListener('click', createModalOptions);
+
+            logOut.addEventListener('click', () => {
+                sessionStorage.clear();
+                window.location.replace("http://127.0.0.1:5500/index.html");
+            })
+
+        } else {
+            console.error("Erro ao guarda a informação na WebStorage");
+        }
+    }  
+
+    function checkAndUpdateUI() {
+        const pickLogin = sessionStorage.getItem("loginDone");
+        if(pickLogin === "true") {
+            nome = sessionStorage.getItem("adminName");
             updateUiAdminDesktop();
             updateUiAdminMobile();
         }
-    });
+    }
 
-    window.addEventListener('DOMContentLoaded', () => {
-        if(isSubmit) {
-            updateUiAdminDesktop();
-            updateUiAdminMobile();
-        }
-    })
+        // Eventos para atualizar o estado
+
+    window.addEventListener('resize', checkAndUpdateUI);
+    window.addEventListener('DOMContentLoaded', checkAndUpdateUI);
+    window.addEventListener('load', checkAndUpdateUI);
 });
