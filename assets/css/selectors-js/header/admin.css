@@ -1,0 +1,40 @@
+.adminNameContainer { 
+    color: white;
+    background-color: rgb(185, 185, 20);
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px 0px #ffffff42;
+    font-size: 1em;
+    padding: 6px;
+    cursor: pointer; 
+}
+
+.adminContainerWithoutModal {
+    display: flex;
+    width: 100%;
+    padding: 7px;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid #0000003d;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px 0px #00000033;
+    gap: 50px;
+
+
+    .nameAdmin {
+        font-weight: 800;
+        color: #ffec02c9;
+        background-color: #A4A5A6;
+        padding: 7px;
+        border: 1px solid #00000057;
+        border-radius: 10px;
+        box-shadow: 1px 1px 6px 1px #00000047;
+    }
+    
+    .adminOptions {
+        display: flex;
+        color: white;
+        gap: 45px;
+        cursor: pointer; 
+    }
+} 

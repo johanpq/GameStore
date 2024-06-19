@@ -54,6 +54,8 @@ menuIcon.addEventListener('click', () => {
     modalMenu.style.display = 'block'; 
 
     storeParagraph.innerHTML = "Store";
+    div.classList.add('elements');
+    div2.classList.add('elements');
     div.innerHTML = "Suport";
     div2.innerHTML = "Contribute";
 
@@ -81,6 +83,7 @@ const divRightContent = document.querySelector('.right-content');
 
 const rezizeWithViewPort = window.addEventListener('resize', function() {
     if (window.innerWidth >= minWidth) {
+        modalMenu.remove();
         div.innerHTML = "Suport";
         div2.innerHTML = "Contribute";
 
@@ -95,10 +98,13 @@ const rezizeWithViewPort = window.addEventListener('resize', function() {
         svgLogin.setAttribute("fill", "#e8eaed"); 
         svgLogin.appendChild(pathElementLogin);
         divRightContent.appendChild(svgLogin);
+        modalElement.appendChild(svgLogin);
+        modalElement.appendChild(div);
+        modalElement.appendChild(div2);
 
-        divRightContent.removeChild(svgLogin);
-        headerContent.removeChild(div);
-        headerContent.removeChild(div2); 
+        //divRightContent.removeChild(svgLogin);
+        //headerContent.removeChild(div);
+        //headerContent.removeChild(div2);
     } 
 })  
 
@@ -395,3 +401,174 @@ svgLogin.addEventListener('click', () => {
 })
 
 /* ================================= */
+
+//Admin Features
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    let isSubmit = false;
+
+    let nome;
+
+    // Event listener para o formulário
+    form.addEventListener('submit', (event) => {
+        //event.preventDefault();
+        if(inputTextLogin.value === inputTextLogin.value && inputPassword.value === inputPassword.value) {
+            isSubmit = true;
+            sessionStorage.clear();
+            sessionStorage.setItem("loginDone", true);
+            nome = inputTextLogin.value;
+            updateUiAdminDesktop();
+            updateUiAdminMobile();
+        }
+    });
+
+
+    const divNameAdmin = document.createElement('div');
+
+    const nameAdmin = document.createElement('div');
+
+    function updateUiAdminDesktop() {
+        if(window.innerWidth >= minWidth) {
+
+            if(divNameAdmin.contains(divOptions)) {
+                divNameAdmin.removeChild(divOptions);
+            }
+
+            divNameAdmin.classList.remove('adminContainerWithoutModal');            
+
+            svgLogin.style.display = "none";
+            divNameAdmin.setAttribute('id', 'adminContainer');
+            divNameAdmin.classList.add('adminNameContainer');
+    
+            nameAdmin.classList.add('nameAdmin');
+        
+            updateSessionStorage(nome);
+        }
+    }
+
+    // Função para atualizar a interface do admin
+    
+    const divOptions = document.createElement('div');
+
+    function updateUiAdminMobile() {
+        if(window.innerWidth < minWidth) {
+            
+            if(divRightContent.contains(divNameAdmin)) {
+                divRightContent.removeChild(divNameAdmin);
+            }
+
+            divOptions.classList.add('adminOptions');
+            svgLogin.style.display = "none";
+            //nameAdmin.innerHTML = "Hello " + nome;
+            divNameAdmin.classList.remove('adminNameContainer');
+            divNameAdmin.classList.add('adminContainerWithoutModal');
+    
+            createGames.innerHTML = "Create Games";
+            createGames.classList.add('adminOptions');
+    
+            settings.innerHTML = "Settings";
+            settings.classList.add('adminOptions');
+
+            logOut.innerHTML = "Logout";
+            logOut.classList.add('adminOptions');
+
+            updateSessionStorage(nome);
+        }
+    }
+    
+    // Função para criar o modal de opções
+
+    const modalOptions = document.createElement('div');
+    const divElementsOptionsContainer = document.createElement('div');
+    const divElementsOptions = document.createElement('div');
+    const createGames = document.createElement('div');
+    const settings = document.createElement('div');
+    const logOut = document.createElement('div');
+
+    function createModalOptions() { 
+        modalOptions.classList.toggle('modalUserOptions');
+        
+        divElementsOptionsContainer.classList.add('modal-elements');
+    
+        divElementsOptions.classList.add('elements');
+    
+        createGames.innerHTML = "Create Games";
+    
+        settings.innerHTML = "Settings";
+
+        logOut.innerHTML = "Logout";
+
+        if(!modalOptions.classList.contains('modalUserOptions')) {
+            createGames.innerHTML = "";
+            settings.innerHTML = "";
+            logOut.innerHTML = "";
+        }
+
+        logOut.addEventListener('click', () => {
+            sessionStorage.clear();
+            window.location.replace("http://127.0.0.1:5500/index.html");
+        })
+    
+        document.body.appendChild(modalOptions);
+        modalOptions.appendChild(divElementsOptionsContainer);
+        divElementsOptionsContainer.appendChild(divElementsOptions);
+        divElementsOptions.appendChild(createGames);
+        divElementsOptions.appendChild(settings);
+        divElementsOptions.appendChild(logOut);
+    }
+
+    // Função para guardar dados de login
+    function updateSessionStorage(admName) {
+        sessionStorage.setItem("adminName", admName);
+
+        let getAdminName = sessionStorage.getItem("adminName");
+
+        if(admName != undefined && window.innerWidth >= minWidth) {
+            nameAdmin.innerHTML = "Hello " + getAdminName;
+            divNameAdmin.appendChild(nameAdmin);
+
+            divNameAdmin.addEventListener('click', createModalOptions);
+
+            divRightContent.appendChild(divNameAdmin);
+        } else if(admName != undefined && window.innerWidth < minWidth) {
+            nameAdmin.innerHTML = "Hello " + getAdminName;
+            
+            modalElement.appendChild(divNameAdmin);
+            divNameAdmin.appendChild(nameAdmin);
+            divNameAdmin.appendChild(createGames);
+            divNameAdmin.appendChild(settings);
+            divNameAdmin.appendChild(logOut);
+
+            // atualizar para manter a ordem de inserção dos elementos
+            modalElement.appendChild(svgLogin);
+            modalElement.appendChild(div);
+            modalElement.appendChild(div2);
+
+            divNameAdmin.removeEventListener('click', createModalOptions);
+
+            logOut.addEventListener('click', () => {
+                sessionStorage.clear();
+                window.location.replace("http://127.0.0.1:5500/index.html");
+            })
+
+        } else {
+            console.error("Erro ao guarda a informação na WebStorage");
+        }
+    }  
+
+    function checkAndUpdateUI() {
+        const pickLogin = sessionStorage.getItem("loginDone");
+        if(pickLogin === "true") {
+            nome = sessionStorage.getItem("adminName");
+            updateUiAdminDesktop();
+            updateUiAdminMobile();
+        }
+    }
+
+        // Eventos para atualizar o estado
+
+    window.addEventListener('resize', checkAndUpdateUI);
+    window.addEventListener('DOMContentLoaded', checkAndUpdateUI);
+    window.addEventListener('load', checkAndUpdateUI);
+});
