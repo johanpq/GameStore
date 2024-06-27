@@ -16,7 +16,9 @@ function getGames() {
 async function showGames() {
     try {
         const games = await getGames();    
-        createPopularPaidGames(games); 
+        createOpenWorldGames(games); 
+        create2dGames(games);
+        anotherGames(games);
         console.log(games); 
     } catch (error) {
         console.log(error);
@@ -30,8 +32,8 @@ mainContainer.classList.add('main-container');
 
 main.appendChild(mainContainer);
 
-const createPopularPaidGames = (games) => {
-    const h3Title = "Popular Games";
+const createOpenWorldGames = (games) => {
+    const h3Title = "Open World Games";
 
     const testemunhal = document.createElement('div');
     testemunhal.classList.add('testemunhal');
@@ -47,7 +49,55 @@ const createPopularPaidGames = (games) => {
     mainContainer.appendChild(testemunhal);
 
     games.map((game) => {
-        CreateGames(testemunhalContainer, game.id, game.title, game.image, game.title, game.little_description, game.price);
+        if(game.title == "Red Dead Redeption 2" || game.title == "The Elder Scrolls V: Skyrim") {
+            CreateGames(testemunhalContainer, game.id, game.title, game.image, game.title, game.little_description, game.price);
+        }
+    });
+}
+
+const create2dGames = (games) => {
+    const h3Title = "2d Games";
+
+    const testemunhal = document.createElement('div');
+    testemunhal.classList.add('testemunhal');
+
+    const h3 = document.createElement('h3');
+    h3.textContent = h3Title;
+
+    const testemunhalContainer = document.createElement('div');
+    testemunhalContainer.classList.add('testemunhal-container');
+
+    testemunhal.appendChild(h3);
+    testemunhal.appendChild(testemunhalContainer);
+    mainContainer.appendChild(testemunhal);
+
+    games.map((game) => {
+        if(game.title == "Celeste" || game.title == "Hollow Knight") {
+            CreateGames(testemunhalContainer, game.id, game.title, game.image, game.title, game.little_description, game.price);
+        }
+    });
+}
+
+const anotherGames = (games) => {
+    const h3Title = "Another Games";
+
+    const testemunhal = document.createElement('div');
+    testemunhal.classList.add('testemunhal');
+
+    const h3 = document.createElement('h3');
+    h3.textContent = h3Title;
+
+    const testemunhalContainer = document.createElement('div');
+    testemunhalContainer.classList.add('testemunhal-container');
+
+    testemunhal.appendChild(h3);
+    testemunhal.appendChild(testemunhalContainer);
+    mainContainer.appendChild(testemunhal);
+
+    games.map((game) => {
+        if(!(game.title == "Red Dead Redeption 2" || game.title == "The Elder Scrolls V: Skyrim" || game.title == "Celeste" || game.title == "Hollow Knight")) {
+            CreateGames(testemunhalContainer, game.id, game.title, game.image, game.title, game.little_description, game.price);
+        }
     });
 }
 
